@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Request Demo - Reputation Guardian</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/src/style.css">
+</head>
+
+<body class="bg-mesh font-sans antialiased min-h-screen relative">
+
+    <!-- Navbar -->
+    <nav class="glass-nav fixed w-full z-50 top-0 start-0">
+        <div class="max-w-7xl flex flex-wrap items-center justify-between mx-auto p-4">
+            <a href="/" class="flex items-center space-x-3">
+                <div
+                    class="w-8 h-8 rounded bg-gradient-to-br from-trust-blue-700 to-trust-blue-900 flex items-center justify-center text-white font-bold text-lg shadow-md">
+                    R
+                </div>
+                <span class="text-xl font-bold text-slate-900 tracking-tight">Reputation Guardian</span>
+            </a>
+        </div>
+    </nav>
+
+    <div class="pt-32 pb-20 px-4 max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-16">
+        <!-- Text Content -->
+        <div class="lg:w-1/2">
+            <span
+                class="bg-blue-100 text-trust-blue-800 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-4 inline-block">Enterprise
+                Demo</span>
+            <h1 class="text-4xl lg:text-5xl font-bold text-slate-900 mb-6 leading-tight">
+                See How We Automate <span class="text-gradient">Review Management</span>
+            </h1>
+            <p class="text-lg text-slate-600 mb-8 leading-relaxed">
+                Book a personalized demo to see our platform in action. Learn how we help enterprises manage thousands
+                of locations with strict API compliance.
+            </p>
+            <ul class="space-y-4 text-slate-700">
+                <li class="flex items-center gap-3">
+                    <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    Full walkthrough of AI Auto-Response
+                </li>
+                <li class="flex items-center gap-3">
+                    <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    Custom reporting dashboard preview
+                </li>
+                <li class="flex items-center gap-3">
+                    <svg class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    Compliance & Security Q&A
+                </li>
+            </ul>
+        </div>
+
+        <!-- Form -->
+        <div class="lg:w-1/2 w-full">
+            <div class="glass-card p-8 md:p-10 rounded-2xl bg-white border border-slate-200 shadow-xl">
+                <h2 class="text-2xl font-bold text-slate-900 mb-6">Schedule Your Demo</h2>
+                <form id="demoForm" class="space-y-4">
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block mb-1 text-sm font-medium text-slate-700">Full Name</label>
+                            <input type="text" id="name"
+                                class="w-full bg-slate-50 border border-slate-300 rounded-lg p-3 text-sm focus:ring-trust-blue-500 focus:border-trust-blue-500"
+                                placeholder="John Doe" required>
+                        </div>
+                        <div>
+                            <label class="block mb-1 text-sm font-medium text-slate-700">Business Name</label>
+                            <input type="text" id="businessName"
+                                class="w-full bg-slate-50 border border-slate-300 rounded-lg p-3 text-sm focus:ring-trust-blue-500 focus:border-trust-blue-500"
+                                placeholder="Acme Inc." required>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block mb-1 text-sm font-medium text-slate-700">Work Email</label>
+                        <input type="email" id="email"
+                            class="w-full bg-slate-50 border border-slate-300 rounded-lg p-3 text-sm focus:ring-trust-blue-500 focus:border-trust-blue-500"
+                            placeholder="john@company.com" required>
+                    </div>
+                    <div>
+                        <label class="block mb-1 text-sm font-medium text-slate-700">Phone Number</label>
+                        <input type="tel" id="phone"
+                            class="w-full bg-slate-50 border border-slate-300 rounded-lg p-3 text-sm focus:ring-trust-blue-500 focus:border-trust-blue-500"
+                            placeholder="+1 (555) 000-0000">
+                    </div>
+
+                    <button type="submit"
+                        class="w-full text-white bg-trust-blue-700 hover:bg-trust-blue-800 font-bold rounded-lg text-sm px-5 py-4 text-center transition-all shadow-lg hover:shadow-xl mt-4">
+                        Submit Request
+                    </button>
+                    <p class="text-xs text-slate-400 text-center mt-4">
+                        By submitting, you agree to our <a href="/terms.html"
+                            class="underline hover:text-trust-blue-600">Terms</a> and <a href="/privacy.html"
+                            class="underline hover:text-trust-blue-600">Privacy Policy</a>.
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('demoForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const formData = {
+                name: document.getElementById('name').value,
+                businessName: document.getElementById('businessName').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value
+            };
+
+            try {
+                const res = await fetch('http://localhost:3000/api/request-demo', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(formData)
+                });
+
+                if (res.ok) {
+                    alert('Request Submitted! We will contact you shortly to schedule.');
+                    document.getElementById('demoForm').reset();
+                } else {
+                    const data = await res.json();
+                    alert('Error: ' + data.error);
+                }
+            } catch (err) {
+                console.error(err);
+                alert('Connection error. Please try again later.');
+            }
+        });
+    </script>
+</body>
+
+</html>
